@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chat App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background-color: black; /* Set the background to black */
+      margin: 0;
+      overflow: hidden;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    #chat {
+      width: 70%; /* Adjust the width as needed */
+      height: 90vh; /* Adjust the height as needed */
+      margin: 20px auto; /* Center the chat box horizontally */
+      padding: 20px;
+      border: 2px solid #00ff00;
+      border-radius: 10px;
+      overflow-y: auto; /* Add vertical scroll if content overflows */
+      background-color: rgba(0, 255, 0, 0.1); /* Semi-transparent green background */
+      font-family: monospace; /* Use a monospace font for the chat messages */
+    }
+
+    #chat ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    #chat li {
+      margin-bottom: 5px;
+    }
+
+    #chat input, #chat button {
+      color: #00ff00; /* Set text color to green */
+    }
+
+    /* Make all the text inside the chat box green */
+    #chat input, #chat button, #messages {
+      color: #00ff00;
+    }
+
+    h1 {
+      color: #00ff00; /* Set text color to green */
+      font-size: 36px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow */
+      animation: fadeIn 2s ease-in-out, matrixAnimation 8s infinite; /* Add matrix animation */
+      overflow: hidden; /* Hide the matrix animation overflow */
+      text-align: center; /* Center the text horizontally */
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes matrixAnimation {
+      0% {
+        content: ""; /* Start with empty content */
+      }
+      100% {
+        content: attr(data-text); /* Display the original content */
+      }
+    }
+
+    /* Add more styles as needed */
+  </style>
+</head>
+<body>
+  <h1 data-text="THE TEXT TRANSFER BY HIJACK">THE TEXT TRANSFER BY HIJACK</h1>
+  <div id="chat">
+    <ul id="messages"></ul>
+    <form id="message-form">
+      <input id="input-message" autocomplete="off" /><button>Send</button>
+    </form>
+  </div>
+  <script>
+    // ... Your existing script for the Matrix animation ...
+  </script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
